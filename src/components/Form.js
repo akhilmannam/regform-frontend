@@ -15,7 +15,7 @@ function Form() {
 
 	useEffect(() => {
 		async function getData() {
-			let response = await axios.get("http://localhost:3001/users");
+			let response = await axios.get("https://regform-backend.herokuapp.com/users");
 			setUsers(response.data);
 		}
 		getData();
@@ -25,7 +25,7 @@ function Form() {
 		e.preventDefault();
 		const data = { name, mobile, email, jobType, dob, location };
 		async function postRegData() {
-			await axios.post("http://localhost:3001/user", data);
+			await axios.post("https://regform-backend.herokuapp.com/user", data);
 		}
 		postRegData();
 		window.location.replace("/");
@@ -35,7 +35,7 @@ function Form() {
 		e.preventDefault();
 		const data = { name, mobile, email, jobType, dob, location };
 		async function putRegData() {
-			await axios.put(`http://localhost:3001/user/${editID}`, data);
+			await axios.put(`https://regform-backend.herokuapp.com/user/${editID}`, data);
 		}
 		putRegData();
 		window.location.replace("/");
@@ -301,7 +301,7 @@ function Form() {
 												async function getUserData() {
 													let response =
 														await axios.get(
-															`http://localhost:3001/user/${user.email}`
+															`https://regform-backend.herokuapp.com/user/${user.email}`
 														);
 													setEditID(
 														response.data._id
@@ -332,7 +332,7 @@ function Form() {
 											onClick={() => {
 												async function deleteUserData() {
 													await axios.delete(
-														`http://localhost:3001/user/${user.email}`
+														`https://regform-backend.herokuapp.com/user/${user.email}`
 													);
 												}
 												deleteUserData();
